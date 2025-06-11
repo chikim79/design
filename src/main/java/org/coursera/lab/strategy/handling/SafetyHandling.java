@@ -1,4 +1,4 @@
-package org.coursera.lab.strategy;
+package org.coursera.lab.strategy.handling;
 
 public class SafetyHandling implements Handling {
     @Override

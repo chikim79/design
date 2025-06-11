@@ -1,13 +1,15 @@
 package org.coursera.lab.strategy;
 
-public class Convertible extends Car {
+import org.coursera.lab.strategy.handling.RacingHandling;
+
+public class Convertible extends AbstractCar {
 
     public Convertible() {
         super(20000, new RacingHandling());
     }
 
     @Override
-    String getType() {
-        return "convertible";
+    public String getType() {
+        return "Convertible";
     }
 }

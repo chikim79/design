@@ -1,5 +1,9 @@
 package org.coursera.lab.strategy;
 
+import org.coursera.lab.strategy.decorator.SeatCoverDecorator;
+import org.coursera.lab.strategy.decorator.ServiceDecorator;
+import org.coursera.lab.strategy.decorator.UndercoatDecorator;
+
 import java.util.ArrayList;
 
 /*
@@ -13,33 +17,16 @@ public class Main {
     public static void main(String[] args) {
         // Create a list of the different car objects
         ArrayList<Car> cars = new ArrayList<Car>();
-        cars.add(new Sedan());
-        cars.add(new Coupe());
-        cars.add(new Convertible());
+
+
+        cars.add(new UndercoatDecorator(new ServiceDecorator(new Sedan())));  // Decorations
+        cars.add(new UndercoatDecorator(new Coupe())); // Decorations
+        cars.add(new SeatCoverDecorator(new SeatCoverDecorator(new Convertible()))); // Decorations
         // call the handle method for all of them
         for (Car c : cars) {
-            System.out.print(c.name + " ");
+            System.out.print(c.getName() + " ");
             c.handle();
         }
     }
 }
 
-abstract class Car {
-    String name;
-    int cost;
-    Handling handlingStrategy;
-    protected static int carCounter = 0;
-
-    Car(int cost, Handling handlingStrategy) {
-        carCounter++;
-        name = getType() + " " + carCounter;
-        this.cost = cost;
-        this.handlingStrategy = handlingStrategy;
-    }
-
-    abstract String getType();
-
-    public void handle() {
-        System.out.println(handlingStrategy.handle());
-    }
-}

@@ -1,4 +1,4 @@
-package org.coursera.lab.strategy;
+package org.coursera.lab.strategy.handling;
 
 public interface Handling {
     default String handle() {

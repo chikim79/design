@@ -1,13 +1,15 @@
 package org.coursera.lab.strategy;
 
-public class Coupe extends Car {
+import org.coursera.lab.strategy.handling.SportHandling;
+
+public class Coupe extends AbstractCar {
 
     public Coupe() {
         super(15000, new SportHandling());
     }
 
     @Override
-    String getType() {
-        return "coupe";
+    public String getType() {
+        return "Coupe";
     }
 }

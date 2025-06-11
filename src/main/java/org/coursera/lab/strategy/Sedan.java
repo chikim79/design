@@ -1,13 +1,15 @@
 package org.coursera.lab.strategy;
 
-public class Sedan extends Car {
+import org.coursera.lab.strategy.handling.SafetyHandling;
+
+public class Sedan extends AbstractCar {
 
     public Sedan() {
         super(10000, new SafetyHandling());
     }
 
     @Override
-    String getType() {
-        return "sedan";
+    public String getType() {
+        return "Sedan";
     }
 }

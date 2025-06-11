@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Car
+abstract class AbstractCar
+class Sedan
+class Coupe
+class Convertible
+
+interface Handling
+class SafetyHandling
+
+AbstractCar ..|> Car
+Sedan --|> AbstractCar
+Coupe --|> AbstractCar
+Convertible --|> AbstractCar
+
+SafetyHandling ..|> Handling
+SportHandling ..|> Handling
+RacingHandling ..|> Handling
+
+AbstractCar --> Handling : uses
+
+Sedan ..> SafetyHandling : creates
+Coupe ..> SportHandling : creates
+Convertible ..> RacingHandling : creates
+
+UndercoatDecorator ..> Car : decorates
+SeatCoverDecorator ..> Car : decorates
+ServiceDecorator ..> Car : decorates
+
+@enduml
